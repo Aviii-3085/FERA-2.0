@@ -1,0 +1,20 @@
+[project]
+name = "fera"
+version = "0.1.0"
+description = "FERA — Fuel Efficiency Research & Analysis platform"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+authors = [
+    { name = "Avishkar Gopale" }
+]
+dependencies = [
+    "fastapi",
+    "pydantic-settings",
+    "uvicorn[standard]"
+]
+
+[tool.uv]
+package = false
+
+[tool.vercel]
+entrypoint = "backend.app.main:app"
