@@ -76,3 +76,5 @@ playwright-report/
 # Build artifacts
 *.egg-info/
 dist/
+# Local FERA 1.0 audit copy
+fera-1.0-source/
