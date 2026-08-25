@@ -78,3 +78,11 @@ playwright-report/
 dist/
 # Local FERA 1.0 audit copy
 fera-1.0-source/
+
+# FERA datasets
+data/raw/*
+data/processed/*
+data/external/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/external/.gitkeep
