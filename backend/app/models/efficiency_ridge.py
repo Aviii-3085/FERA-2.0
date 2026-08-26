@@ -1,8 +1,9 @@
+import numpy as np
 from sklearn.linear_model import Ridge
 
 
 class EfficiencyRidgeModel:
-    """Regularized linear fuel-rate baseline."""
+    """Regularized linear fuel-rate model with non-negative predictions."""
 
     def __init__(
         self,
@@ -14,4 +15,5 @@ class EfficiencyRidgeModel:
         self.model.fit(features, target)
 
     def predict(self, features):
-        return self.model.predict(features)
+        predictions = self.model.predict(features)
+        return np.maximum(predictions, 0.0)

@@ -19,3 +19,4 @@ def test_ridge_model_can_fit_and_predict() -> None:
     predictions = model.predict(features)
 
     assert len(predictions) == 4
+    assert (predictions >= 0).all()

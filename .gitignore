@@ -86,3 +86,7 @@ data/external/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/external/.gitkeep
+
+# FERA 2.0 trained model artifacts
+!data/models/
+!data/models/*.pkl

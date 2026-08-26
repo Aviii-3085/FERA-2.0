@@ -184,14 +184,14 @@ Dataset:
 ## Phase 8 — Production ML Pipeline
 
 ### Step 17 — Training Pipeline
-- [ ] Build reproducible training pipeline
+- [x] Build reproducible training pipeline
 - [ ] Load processed VED dataset
 - [ ] Apply locked feature transformations
 - [ ] Apply locked train/test grouping
 - [ ] Train final model
-- [ ] Save model artifact
-- [ ] Save feature metadata
-- [ ] Save evaluation metadata
+- [x] Save model artifact
+- [x] Save feature metadata
+- [x] Save evaluation metadata
 
 ### Step 18 — Model Artifact Management
 - [ ] Define model artifact contract
