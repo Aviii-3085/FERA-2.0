@@ -170,14 +170,14 @@ Dataset:
 - [ ] Lock final hyperparameters
 
 ### Step 16 — Final Model Evaluation
-- [ ] Run final held-out evaluation
-- [ ] Calculate MAE
-- [ ] Calculate RMSE
+- [x] Run final held-out evaluation
+- [x] Calculate MAE
+- [x] Calculate RMSE
 - [ ] Calculate R²
-- [ ] Analyze per-vehicle performance
-- [ ] Analyze fuel-rate ranges
-- [ ] Analyze prediction bias
-- [ ] Establish final model benchmark
+- [x] Analyze per-vehicle performance
+- [x] Analyze fuel-rate ranges
+- [x] Analyze prediction bias
+- [x] Establish final model benchmark
 
 ---
 
