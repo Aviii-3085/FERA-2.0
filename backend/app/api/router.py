@@ -1,6 +1,8 @@
 from fastapi import APIRouter
 
 from backend.app.core.config import settings
+from backend.app.schemas.efficiency import EfficiencyPrediction
+from backend.app.schemas.telemetry import TelemetryInput
 from backend.app.services.efficiency import EfficiencyService
 from backend.app.services.health import HealthService
 
@@ -15,3 +17,14 @@ efficiency_service = EfficiencyService(settings)
 def health_check() -> dict[str, str]:
     """Return the current health status of the FERA API."""
     return health_service.status()
+
+
+@router.post(
+    "/efficiency/predict",
+    response_model=EfficiencyPrediction,
+)
+def predict_efficiency(
+    telemetry: TelemetryInput,
+) -> EfficiencyPrediction:
+    """Predict fuel consumption from vehicle telemetry."""
+    return efficiency_service.predict(telemetry)
