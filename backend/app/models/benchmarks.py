@@ -15,3 +15,11 @@ RIDGE_FULL_VED_BENCHMARK = ModelBenchmark(
     rmse=0.659426,
     r2=0.842988,
 )
+
+
+ENGINEERED_RIDGE_FULL_VED_BENCHMARK = ModelBenchmark(
+    model="ridge_engineered",
+    mae=0.257793,
+    rmse=0.626308,
+    r2=0.858363,
+)
