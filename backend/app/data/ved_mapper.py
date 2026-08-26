@@ -20,7 +20,7 @@ class VEDRecordMapper:
             hv_battery_current_a=self._optional_float(
                 row.get("HV Battery Current[A]")
             ),
-            hv_battery_soc_pct=self._optional_float(
+            hv_battery_soc_pct=self._normalize_soc(
                 row.get("HV Battery SOC[%]")
             ),
             hv_battery_voltage_v=self._optional_float(
@@ -40,3 +40,14 @@ class VEDRecordMapper:
             return None
 
         return float(text)
+    @classmethod
+    def _normalize_soc(cls, value: object) -> float | None:
+        value = cls._optional_float(value)
+
+        if value is None:
+            return None
+
+        if 100 < value <= 100.01:
+            return 100.0
+
+        return value
