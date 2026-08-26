@@ -1,12 +1,14 @@
 from fastapi import APIRouter
 
 from backend.app.core.config import settings
+from backend.app.services.efficiency import EfficiencyService
 from backend.app.services.health import HealthService
 
 
 router = APIRouter(prefix="/api")
 
 health_service = HealthService(settings)
+efficiency_service = EfficiencyService(settings)
 
 
 @router.get("/health")

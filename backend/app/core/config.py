@@ -5,6 +5,7 @@ class Settings(BaseSettings):
     app_name: str = "FERA"
     app_version: str = "0.1.0"
     environment: str = "development"
+    model_artifact_path: str = "data/models/efficiency_ridge.pkl"
 
     model_config = SettingsConfigDict(
         env_prefix="FERA_",

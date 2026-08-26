@@ -2,6 +2,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from backend.app.core.config import Settings
 from backend.app.data.efficiency_feature_engineering import (
     EfficiencyFeatureEngineer,
 )
@@ -17,11 +18,13 @@ class EfficiencyService:
 
     def __init__(
         self,
+        settings: Settings,
         artifact_path: Path | None = None,
     ) -> None:
         self.artifact_path = (
             artifact_path
-            or Path("data/models/efficiency_ridge.pkl")
+            if artifact_path is not None
+            else Path(settings.model_artifact_path)
         )
         self.feature_engineer = EfficiencyFeatureEngineer()
 

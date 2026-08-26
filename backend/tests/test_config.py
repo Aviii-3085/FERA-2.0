@@ -5,3 +5,7 @@ def test_default_settings() -> None:
     assert settings.app_name == "FERA"
     assert settings.app_version == "0.1.0"
     assert settings.environment == "development"
+    assert (
+        settings.model_artifact_path
+        == "data/models/efficiency_ridge.pkl"
+    )
