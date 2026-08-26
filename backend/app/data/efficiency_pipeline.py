@@ -1,3 +1,4 @@
+from collections.abc import Iterable
 from pathlib import Path
 
 import pandas as pd
@@ -8,7 +9,7 @@ from backend.app.data.efficiency_loader import EfficiencyDatasetLoader
 
 
 class EfficiencyMLPipeline:
-    """Build model-ready data from a processed VED CSV."""
+    """Build model-ready data from processed VED CSV files."""
 
     def __init__(
         self,
@@ -24,7 +25,18 @@ class EfficiencyMLPipeline:
         self,
         path: Path,
     ) -> tuple[pd.DataFrame, pd.Series]:
-        records = self.loader.load_file(path)
+        return self.prepare_files([path])
+
+    def prepare_files(
+        self,
+        paths: Iterable[Path],
+    ) -> tuple[pd.DataFrame, pd.Series]:
+        records = (
+            record
+            for path in paths
+            for record in self.loader.load_file(path)
+        )
+
         features, target = self.builder.build(records)
         features = self.preprocessor.transform(features)
 
