@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Cascadia Code", monospace;
+
+  --color-accent-50: oklch(0.97 0.02 230);
+  --color-accent-100: oklch(0.93 0.04 230);
+  --color-accent-200: oklch(0.86 0.07 230);
+  --color-accent-300: oklch(0.78 0.11 230);
+  --color-accent-400: oklch(0.70 0.14 230);
+  --color-accent-500: oklch(0.62 0.17 230);
+  --color-accent-600: oklch(0.54 0.16 230);
+  --color-accent-700: oklch(0.46 0.14 230);
+  --color-accent-800: oklch(0.38 0.11 230);
+  --color-accent-900: oklch(0.30 0.08 230);
+}
+
+:root {
+  --fera-bg: oklch(0.16 0.005 250);
+  --fera-bg-elevated: oklch(0.19 0.006 250);
+  --fera-surface: oklch(0.21 0.007 250);
+  --fera-surface-hover: oklch(0.24 0.008 250);
+  --fera-border: oklch(0.28 0.008 250);
+  --fera-border-strong: oklch(0.34 0.01 250);
+  --fera-text-primary: oklch(0.95 0.005 250);
+  --fera-text-secondary: oklch(0.72 0.01 250);
+  --fera-text-tertiary: oklch(0.55 0.01 250);
+  --fera-text-muted: oklch(0.42 0.01 250);
+  --fera-accent: oklch(0.62 0.17 230);
+  --fera-accent-hover: oklch(0.68 0.16 230);
+  --fera-accent-muted: oklch(0.62 0.17 230 / 0.12);
+  --fera-success: oklch(0.65 0.15 145);
+  --fera-success-muted: oklch(0.65 0.15 145 / 0.12);
+  --fera-warning: oklch(0.72 0.15 75);
+  --fera-warning-muted: oklch(0.72 0.15 75 / 0.12);
+  --fera-error: oklch(0.62 0.20 25);
+  --fera-error-muted: oklch(0.62 0.20 25 / 0.12);
+  --fera-focus-ring: oklch(0.62 0.17 230 / 0.5);
+}
+
+:root[data-theme="light"] {
+  --fera-bg: oklch(0.98 0.002 250);
+  --fera-bg-elevated: oklch(1 0 0);
+  --fera-surface: oklch(1 0 0);
+  --fera-surface-hover: oklch(0.97 0.003 250);
+  --fera-border: oklch(0.91 0.004 250);
+  --fera-border-strong: oklch(0.82 0.006 250);
+  --fera-text-primary: oklch(0.20 0.01 250);
+  --fera-text-secondary: oklch(0.42 0.01 250);
+  --fera-text-tertiary: oklch(0.55 0.01 250);
+  --fera-text-muted: oklch(0.65 0.008 250);
+  --fera-accent: oklch(0.50 0.15 230);
+  --fera-accent-hover: oklch(0.45 0.14 230);
+  --fera-accent-muted: oklch(0.50 0.15 230 / 0.08);
+  --fera-success: oklch(0.52 0.14 145);
+  --fera-success-muted: oklch(0.52 0.14 145 / 0.08);
+  --fera-warning: oklch(0.62 0.15 75);
+  --fera-warning-muted: oklch(0.62 0.15 75 / 0.08);
+  --fera-error: oklch(0.52 0.20 25);
+  --fera-error-muted: oklch(0.52 0.20 25 / 0.08);
+  --fera-focus-ring: oklch(0.50 0.15 230 / 0.4);
+}
+
+@layer base {
+  * {
+    border-color: var(--fera-border);
+  }
+
+  body {
+    background-color: var(--fera-bg);
+    color: var(--fera-text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--fera-accent-muted);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--fera-border);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--fera-border-strong);
+  }
+}
+
+@layer components {
+  .fera-surface {
+    background-color: var(--fera-surface);
+    border: 1px solid var(--fera-border);
+  }
+
+  .fera-surface-elevated {
+    background-color: var(--fera-bg-elevated);
+    border: 1px solid var(--fera-border);
+  }
+
+  .fera-focus-ring:focus-visible {
+    outline: 2px solid var(--fera-focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+@theme inline {
+  --color-fera-bg: var(--fera-bg);
+  --color-fera-bg-elevated: var(--fera-bg-elevated);
+  --color-fera-surface: var(--fera-surface);
+  --color-fera-surface-hover: var(--fera-surface-hover);
+  --color-fera-border: var(--fera-border);
+  --color-fera-border-strong: var(--fera-border-strong);
+  --color-fera-text-primary: var(--fera-text-primary);
+  --color-fera-text-secondary: var(--fera-text-secondary);
+  --color-fera-text-tertiary: var(--fera-text-tertiary);
+  --color-fera-text-muted: var(--fera-text-muted);
+  --color-fera-accent: var(--fera-accent);
+  --color-fera-accent-hover: var(--fera-accent-hover);
+  --color-fera-accent-muted: var(--fera-accent-muted);
+  --color-fera-success: var(--fera-success);
+  --color-fera-success-muted: var(--fera-success-muted);
+  --color-fera-warning: var(--fera-warning);
+  --color-fera-warning-muted: var(--fera-warning-muted);
+  --color-fera-error: var(--fera-error);
+  --color-fera-error-muted: var(--fera-error-muted);
+}
