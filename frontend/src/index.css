@@ -1,65 +1,147 @@
 @import "tailwindcss";
 
+/* ============================================================
+   FERA 2.0 — Design tokens
+   iOS-inspired: pastel accents on neutral, warm surfaces,
+   soft depth, spring-like motion. Accents stay restrained —
+   surfaces remain neutral and readable.
+   ============================================================ */
+
 @theme {
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", -apple-system, "SF Pro Text", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", "Cascadia Code", monospace;
 
-  --color-accent-50: oklch(0.97 0.02 230);
-  --color-accent-100: oklch(0.93 0.04 230);
-  --color-accent-200: oklch(0.86 0.07 230);
-  --color-accent-300: oklch(0.78 0.11 230);
-  --color-accent-400: oklch(0.70 0.14 230);
-  --color-accent-500: oklch(0.62 0.17 230);
-  --color-accent-600: oklch(0.54 0.16 230);
-  --color-accent-700: oklch(0.46 0.14 230);
-  --color-accent-800: oklch(0.38 0.11 230);
-  --color-accent-900: oklch(0.30 0.08 230);
+  /* Pastel blue — primary actions */
+  --color-accent-50: oklch(0.97 0.014 250);
+  --color-accent-100: oklch(0.93 0.03 250);
+  --color-accent-200: oklch(0.87 0.05 250);
+  --color-accent-300: oklch(0.79 0.08 250);
+  --color-accent-400: oklch(0.71 0.11 250);
+  --color-accent-500: oklch(0.63 0.14 250);
+  --color-accent-600: oklch(0.56 0.15 250);
+  --color-accent-700: oklch(0.48 0.13 250);
+  --color-accent-800: oklch(0.40 0.10 250);
+  --color-accent-900: oklch(0.32 0.07 250);
+
+  /* Pastel lavender — secondary information */
+  --color-secondary-50: oklch(0.97 0.012 305);
+  --color-secondary-100: oklch(0.93 0.028 305);
+  --color-secondary-200: oklch(0.87 0.05 305);
+  --color-secondary-300: oklch(0.79 0.075 305);
+  --color-secondary-400: oklch(0.70 0.10 305);
+  --color-secondary-500: oklch(0.62 0.12 305);
+  --color-secondary-600: oklch(0.54 0.12 305);
+  --color-secondary-700: oklch(0.46 0.11 305);
 }
 
 :root {
-  --fera-bg: oklch(0.16 0.005 250);
-  --fera-bg-elevated: oklch(0.19 0.006 250);
-  --fera-surface: oklch(0.21 0.007 250);
-  --fera-surface-hover: oklch(0.24 0.008 250);
-  --fera-border: oklch(0.28 0.008 250);
-  --fera-border-strong: oklch(0.34 0.01 250);
-  --fera-text-primary: oklch(0.95 0.005 250);
-  --fera-text-secondary: oklch(0.72 0.01 250);
-  --fera-text-tertiary: oklch(0.55 0.01 250);
-  --fera-text-muted: oklch(0.42 0.01 250);
-  --fera-accent: oklch(0.62 0.17 230);
-  --fera-accent-hover: oklch(0.68 0.16 230);
-  --fera-accent-muted: oklch(0.62 0.17 230 / 0.12);
-  --fera-success: oklch(0.65 0.15 145);
-  --fera-success-muted: oklch(0.65 0.15 145 / 0.12);
-  --fera-warning: oklch(0.72 0.15 75);
-  --fera-warning-muted: oklch(0.72 0.15 75 / 0.12);
-  --fera-error: oklch(0.62 0.20 25);
-  --fera-error-muted: oklch(0.62 0.20 25 / 0.12);
-  --fera-focus-ring: oklch(0.62 0.17 230 / 0.5);
+  /* Surfaces — deep charcoal/graphite, faint warmth, not blue-black */
+  --fera-bg: oklch(0.155 0.004 75);
+  --fera-bg-elevated: oklch(0.185 0.005 75);
+  --fera-surface: oklch(0.205 0.006 75);
+  --fera-surface-hover: oklch(0.245 0.007 75);
+  --fera-border: oklch(0.28 0.007 75);
+  --fera-border-strong: oklch(0.35 0.009 75);
+  --fera-text-primary: oklch(0.96 0.003 75);
+  --fera-text-secondary: oklch(0.74 0.006 75);
+  --fera-text-tertiary: oklch(0.57 0.006 75);
+  --fera-text-muted: oklch(0.44 0.006 75);
+
+  /* Pastel accent system */
+  --fera-accent: oklch(0.68 0.13 250);
+  --fera-accent-hover: oklch(0.73 0.12 250);
+  --fera-accent-active: oklch(0.62 0.14 250);
+  --fera-accent-muted: oklch(0.68 0.13 250 / 0.16);
+  --fera-accent-contrast: oklch(0.16 0.02 250);
+
+  --fera-secondary: oklch(0.76 0.09 305);
+  --fera-secondary-muted: oklch(0.76 0.09 305 / 0.16);
+
+  --fera-success: oklch(0.76 0.11 165);
+  --fera-success-muted: oklch(0.76 0.11 165 / 0.16);
+
+  --fera-warning: oklch(0.78 0.10 55);
+  --fera-warning-muted: oklch(0.78 0.10 55 / 0.16);
+
+  --fera-error: oklch(0.68 0.17 25);
+  --fera-error-muted: oklch(0.68 0.17 25 / 0.16);
+
+  --fera-focus-ring: oklch(0.68 0.13 250 / 0.55);
+
+  /* Elevation — soft, diffuse, iOS-like */
+  --fera-shadow-xs: 0 1px 2px oklch(0 0 0 / 0.16);
+  --fera-shadow-sm: 0 1px 3px oklch(0 0 0 / 0.18),
+    0 1px 2px oklch(0 0 0 / 0.14);
+  --fera-shadow-md: 0 8px 24px oklch(0 0 0 / 0.28),
+    0 2px 6px oklch(0 0 0 / 0.18);
+  --fera-shadow-lg: 0 16px 40px oklch(0 0 0 / 0.32),
+    0 4px 10px oklch(0 0 0 / 0.2);
+
+  /* Radii — continuous, generous, iOS card language */
+  --fera-radius-sm: 10px;
+  --fera-radius-md: 14px;
+  --fera-radius-lg: 18px;
+  --fera-radius-xl: 22px;
+
+  /* Motion — spring-flavored easing, short durations */
+  --fera-ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --fera-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --fera-duration-fast: 120ms;
+  --fera-duration: 200ms;
 }
 
 :root[data-theme="light"] {
-  --fera-bg: oklch(0.98 0.002 250);
-  --fera-bg-elevated: oklch(1 0 0);
-  --fera-surface: oklch(1 0 0);
-  --fera-surface-hover: oklch(0.97 0.003 250);
-  --fera-border: oklch(0.91 0.004 250);
-  --fera-border-strong: oklch(0.82 0.006 250);
-  --fera-text-primary: oklch(0.20 0.01 250);
-  --fera-text-secondary: oklch(0.42 0.01 250);
-  --fera-text-tertiary: oklch(0.55 0.01 250);
-  --fera-text-muted: oklch(0.65 0.008 250);
-  --fera-accent: oklch(0.50 0.15 230);
-  --fera-accent-hover: oklch(0.45 0.14 230);
-  --fera-accent-muted: oklch(0.50 0.15 230 / 0.08);
-  --fera-success: oklch(0.52 0.14 145);
-  --fera-success-muted: oklch(0.52 0.14 145 / 0.08);
-  --fera-warning: oklch(0.62 0.15 75);
-  --fera-warning-muted: oklch(0.62 0.15 75 / 0.08);
-  --fera-error: oklch(0.52 0.20 25);
-  --fera-error-muted: oklch(0.52 0.20 25 / 0.08);
-  --fera-focus-ring: oklch(0.50 0.15 230 / 0.4);
+  /* Light Mode — cool pastel base */
+  --fera-bg: oklch(0.94 0.012 250);
+  --fera-bg-elevated: oklch(0.975 0.012 250);
+  --fera-surface: oklch(0.975 0.012 250);
+  --fera-surface-hover: oklch(0.965 0.018 250);
+  --fera-border: oklch(0.84 0.012 250);
+  --fera-border-strong: oklch(0.75 0.018 250);
+
+  --fera-text-primary: oklch(0.22 0.008 75);
+  --fera-text-secondary: oklch(0.44 0.008 75);
+  --fera-text-tertiary: oklch(0.56 0.008 75);
+  --fera-text-muted: oklch(0.66 0.007 75);
+
+  --fera-accent: oklch(0.58 0.15 250);
+  --fera-accent-hover: oklch(0.53 0.15 250);
+  --fera-accent-active: oklch(0.48 0.15 250);
+  --fera-accent-muted: oklch(0.58 0.15 250 / 0.1);
+  --fera-accent-contrast: oklch(1 0 0);
+
+  --fera-secondary: oklch(0.56 0.11 305);
+  --fera-secondary-muted: oklch(0.56 0.11 305 / 0.1);
+
+  --fera-success: oklch(0.58 0.12 165);
+  --fera-success-muted: oklch(0.58 0.12 165 / 0.1);
+
+  --fera-warning: oklch(0.66 0.13 55);
+  --fera-warning-muted: oklch(0.66 0.13 55 / 0.12);
+
+  --fera-error: oklch(0.56 0.19 25);
+  --fera-error-muted: oklch(0.56 0.19 25 / 0.1);
+
+  --fera-focus-ring: oklch(0.58 0.15 250 / 0.45);
+
+  --fera-shadow-xs: 0 1px 2px oklch(0.2 0.01 250 / 0.05);
+  --fera-shadow-sm: 0 3px 8px oklch(0.2 0.01 250 / 0.07),
+    0 1px 2px oklch(0.2 0.01 250 / 0.04);
+  --fera-shadow-md: 0 12px 30px oklch(0.2 0.01 250 / 0.11),
+    0 3px 8px oklch(0.2 0.01 250 / 0.05);
+  --fera-shadow-lg: 0 24px 56px oklch(0.2 0.01 250 / 0.15),
+    0 6px 16px oklch(0.2 0.01 250 / 0.07);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @layer base {
@@ -68,11 +150,54 @@
   }
 
   body {
-    background-color: var(--fera-bg);
+    background:
+      linear-gradient(
+        90deg,
+        color-mix(in oklch, var(--fera-accent) 3%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        0deg,
+        color-mix(in oklch, var(--fera-accent) 3%, transparent) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        1100px 800px at -5% -5%,
+        color-mix(in oklch, var(--fera-accent) 28%, transparent),
+        transparent 68%
+      ),
+      radial-gradient(
+        1000px 750px at 105% 0%,
+        color-mix(in oklch, var(--fera-secondary) 24%, transparent),
+        transparent 68%
+      ),
+      radial-gradient(
+        1100px 800px at 100% 105%,
+        color-mix(in oklch, var(--fera-success) 18%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        850px 650px at 25% 100%,
+        color-mix(in oklch, var(--fera-warning) 10%, transparent),
+        transparent 72%
+      ),
+      var(--fera-bg);
+
+    background-size:
+      48px 48px,
+      48px 48px,
+      auto,
+      auto,
+      auto,
+      auto,
+      auto;
+
+    background-attachment: fixed;
     color: var(--fera-text-primary);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color var(--fera-duration) var(--fera-ease);
   }
 
   ::selection {
@@ -90,7 +215,7 @@
 
   ::-webkit-scrollbar-thumb {
     background: var(--fera-border);
-    border-radius: 4px;
+    border-radius: 999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -100,8 +225,107 @@
 
 @layer components {
   .fera-surface {
-    background-color: var(--fera-surface);
+    background:
+      linear-gradient(
+        145deg,
+        color-mix(in oklch, var(--fera-accent) 2%, var(--fera-surface)),
+        var(--fera-surface) 42%
+      );
     border: 1px solid var(--fera-border);
+    box-shadow:
+      var(--fera-shadow-sm),
+      inset 0 1px 0 oklch(1 0 0 / 0.55);
+  }
+
+  .fera-surface:hover {
+    box-shadow:
+      var(--fera-shadow-md),
+      inset 0 1px 0 oklch(1 0 0 / 0.6);
+    transform: translateY(-1px);
+  }
+
+  /* Overview card identities */
+  .fera-card-model {
+    background:
+      linear-gradient(
+        145deg,
+        color-mix(in oklch, var(--fera-accent) 8%, var(--fera-surface)),
+        var(--fera-surface) 65%
+      );
+  }
+
+  .fera-card-dataset {
+    background:
+      linear-gradient(
+        145deg,
+        color-mix(in oklch, var(--fera-secondary) 8%, var(--fera-surface)),
+        var(--fera-surface) 65%
+      );
+  }
+
+  .fera-card-workflow {
+    background:
+      linear-gradient(
+        145deg,
+        color-mix(in oklch, var(--fera-success) 8%, var(--fera-surface)),
+        var(--fera-surface) 65%
+      );
+  }
+
+  /* ==========================================================
+     LIGHT MODE — stronger pastel card surfaces
+     Dark mode is intentionally untouched.
+     ========================================================== */
+
+  :root[data-theme="light"] .fera-card-model {
+    background:
+      linear-gradient(
+        145deg,
+        oklch(0.925 0.035 250),
+        oklch(0.955 0.018 250) 70%
+      );
+    border-color: oklch(0.82 0.025 250);
+    box-shadow:
+      0 8px 22px oklch(0.35 0.04 250 / 0.10),
+      0 2px 6px oklch(0.35 0.04 250 / 0.06),
+      inset 0 1px 0 oklch(1 0 0 / 0.75);
+  }
+
+  :root[data-theme="light"] .fera-card-dataset {
+    background:
+      linear-gradient(
+        145deg,
+        oklch(0.935 0.035 305),
+        oklch(0.96 0.018 305) 70%
+      );
+    border-color: oklch(0.83 0.025 305);
+    box-shadow:
+      0 8px 22px oklch(0.35 0.04 305 / 0.10),
+      0 2px 6px oklch(0.35 0.04 305 / 0.06),
+      inset 0 1px 0 oklch(1 0 0 / 0.75);
+  }
+
+  :root[data-theme="light"] .fera-card-workflow {
+    background:
+      linear-gradient(
+        145deg,
+        oklch(0.925 0.035 165),
+        oklch(0.955 0.018 165) 70%
+      );
+    border-color: oklch(0.82 0.025 165);
+    box-shadow:
+      0 8px 22px oklch(0.35 0.04 165 / 0.10),
+      0 2px 6px oklch(0.35 0.04 165 / 0.06),
+      inset 0 1px 0 oklch(1 0 0 / 0.75);
+  }
+
+  :root[data-theme="light"] .fera-card-model:hover,
+  :root[data-theme="light"] .fera-card-dataset:hover,
+  :root[data-theme="light"] .fera-card-workflow:hover {
+    box-shadow:
+      0 14px 32px oklch(0.35 0.04 250 / 0.13),
+      0 4px 10px oklch(0.35 0.04 250 / 0.07),
+      inset 0 1px 0 oklch(1 0 0 / 0.8);
   }
 
   .fera-surface-elevated {
@@ -109,9 +333,45 @@
     border: 1px solid var(--fera-border);
   }
 
+  .fera-transition {
+    transition:
+      background-color var(--fera-duration) var(--fera-ease),
+      border-color var(--fera-duration) var(--fera-ease),
+      color var(--fera-duration) var(--fera-ease),
+      box-shadow var(--fera-duration) var(--fera-ease),
+      transform var(--fera-duration-fast) var(--fera-ease-out);
+  }
+
+  .fera-press {
+    transition:
+      transform var(--fera-duration-fast) var(--fera-ease-out),
+      box-shadow var(--fera-duration) var(--fera-ease),
+      filter var(--fera-duration) var(--fera-ease);
+  }
+
+  .fera-press:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.04);
+  }
+
+  .fera-press:active {
+    transform: translateY(1px) scale(0.98);
+    filter: brightness(0.97);
+  }
+
   .fera-focus-ring:focus-visible {
-    outline: 2px solid var(--fera-focus-ring);
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: 0 0 0 4px var(--fera-focus-ring);
+  }
+
+  .fera-spin-slow {
+    animation: fera-spin 0.7s linear infinite;
+  }
+}
+
+@keyframes fera-spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -128,7 +388,11 @@
   --color-fera-text-muted: var(--fera-text-muted);
   --color-fera-accent: var(--fera-accent);
   --color-fera-accent-hover: var(--fera-accent-hover);
+  --color-fera-accent-active: var(--fera-accent-active);
   --color-fera-accent-muted: var(--fera-accent-muted);
+  --color-fera-accent-contrast: var(--fera-accent-contrast);
+  --color-fera-secondary: var(--fera-secondary);
+  --color-fera-secondary-muted: var(--fera-secondary-muted);
   --color-fera-success: var(--fera-success);
   --color-fera-success-muted: var(--fera-success-muted);
   --color-fera-warning: var(--fera-warning);

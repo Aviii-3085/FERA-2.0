@@ -16,9 +16,9 @@ export function MetricCard({
   children,
 }: MetricCardProps) {
   return (
-    <div className="fera-surface relative overflow-hidden rounded-lg p-4 transition-colors hover:border-fera-border-strong">
+    <div className="fera-surface fera-transition relative overflow-hidden rounded-[var(--fera-radius-lg)] p-4 hover:border-fera-border-strong hover:shadow-[var(--fera-shadow-md)]">
       <div className="flex items-start justify-between gap-2">
-        <span className="text-xs font-medium uppercase tracking-wider text-fera-text-tertiary">
+        <span className="text-[11px] font-semibold uppercase tracking-wider text-fera-text-tertiary">
           {label}
         </span>
         {children}

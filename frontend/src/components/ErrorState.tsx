@@ -13,8 +13,10 @@ export function ErrorState({
   action,
 }: ErrorStateProps) {
   return (
-    <div className="fera-surface flex flex-col items-center gap-3 rounded-lg p-8 text-center">
-      <AlertCircle className="h-8 w-8 text-fera-error" />
+    <div className="fera-surface flex flex-col items-center gap-3 rounded-[var(--fera-radius-lg)] p-8 text-center">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-fera-error-muted">
+        <AlertCircle className="h-5 w-5 text-fera-error" />
+      </div>
       <div>
         <h3 className="text-sm font-semibold text-fera-text-primary">
           {title}

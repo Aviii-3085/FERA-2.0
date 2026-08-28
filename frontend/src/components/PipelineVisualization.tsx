@@ -15,7 +15,7 @@ const pipelineSteps = [
 
 export function PipelineVisualization() {
   return (
-    <div className="fera-surface rounded-lg p-5">
+    <div className="fera-surface rounded-[var(--fera-radius-lg)] p-5">
       <h3 className="mb-4 text-sm font-semibold text-fera-text-primary">
         ML Pipeline
       </h3>
@@ -28,7 +28,7 @@ export function PipelineVisualization() {
               isLast={i === pipelineSteps.length - 1}
             />
             {i < pipelineSteps.length - 1 && (
-              <div className="ml-[13px] h-6 w-px bg-fera-border" aria-hidden="true" />
+              <div className="ml-4 h-5 w-px bg-fera-border" aria-hidden="true" />
             )}
           </div>
         ))}

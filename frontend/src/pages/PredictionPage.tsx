@@ -95,7 +95,7 @@ export function PredictionPage() {
   const hasErrors = Object.values(errors).some((v) => v !== undefined);
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 sm:gap-7">
       <PageHeader
         title="Prediction"
         description="Telemetry analysis workspace — submit vehicle parameters to the production model."
@@ -214,7 +214,7 @@ export function PredictionPage() {
             >
               {isLoading ? (
                 <>
-                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                  <span className="h-4 w-4 fera-spin-slow rounded-full border-2 border-fera-accent-contrast/30 border-t-fera-accent-contrast" />
                   Predicting...
                 </>
               ) : (
@@ -257,7 +257,7 @@ export function PredictionPage() {
                 message={error.message}
               />
             ) : (
-              <div className="fera-surface flex flex-col items-center gap-2 rounded-lg p-8 text-center">
+              <div className="fera-surface flex flex-col items-center gap-2 rounded-[var(--fera-radius-lg)] p-8 text-center">
                 <p className="text-sm text-fera-text-secondary">
                   No prediction yet.
                 </p>
@@ -268,8 +268,8 @@ export function PredictionPage() {
             )}
           </div>
 
-          <div className="fera-surface rounded-lg p-4">
-            <h4 className="mb-2 text-xs font-medium uppercase tracking-wider text-fera-text-tertiary">
+          <div className="fera-surface rounded-[var(--fera-radius-lg)] p-4">
+            <h4 className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-fera-text-tertiary">
               Example Values
             </h4>
             <p className="text-xs text-fera-text-muted">

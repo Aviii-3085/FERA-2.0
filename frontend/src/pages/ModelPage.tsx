@@ -31,7 +31,7 @@ const engineeredFeatures: FeatureInfo[] = [
 
 export function ModelPage() {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 sm:gap-7">
       <PageHeader
         title="Model"
         description="Production model specification and feature contract."
@@ -45,9 +45,11 @@ export function ModelPage() {
       </div>
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div className="fera-surface rounded-lg p-5">
+        <div className="fera-surface rounded-[var(--fera-radius-lg)] p-5">
           <div className="mb-4 flex items-center gap-2">
-            <Cpu className="h-4 w-4 text-fera-accent" />
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-fera-accent-muted">
+              <Cpu className="h-3.5 w-3.5 text-fera-accent" />
+            </span>
             <h3 className="text-sm font-semibold text-fera-text-primary">
               Model Specification
             </h3>
@@ -61,13 +63,13 @@ export function ModelPage() {
           </div>
         </div>
 
-        <div className="fera-surface rounded-lg p-5">
+        <div className="fera-surface rounded-[var(--fera-radius-lg)] p-5">
           <h3 className="mb-4 text-sm font-semibold text-fera-text-primary">
             Official Benchmark
           </h3>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-            <div className="fera-surface-hover rounded-md p-3">
-              <span className="text-xs font-medium uppercase tracking-wider text-fera-text-tertiary">
+            <div className="fera-surface-hover rounded-[var(--fera-radius-md)] p-3.5">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-fera-text-tertiary">
                 MAE
               </span>
               <div className="mt-1 flex items-baseline gap-1">
@@ -77,8 +79,8 @@ export function ModelPage() {
                 <span className="text-xs text-fera-text-muted">L/hr</span>
               </div>
             </div>
-            <div className="fera-surface-hover rounded-md p-3">
-              <span className="text-xs font-medium uppercase tracking-wider text-fera-text-tertiary">
+            <div className="fera-surface-hover rounded-[var(--fera-radius-md)] p-3.5">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-fera-text-tertiary">
                 RMSE
               </span>
               <div className="mt-1 flex items-baseline gap-1">
@@ -88,8 +90,8 @@ export function ModelPage() {
                 <span className="text-xs text-fera-text-muted">L/hr</span>
               </div>
             </div>
-            <div className="fera-surface-hover rounded-md p-3">
-              <span className="text-xs font-medium uppercase tracking-wider text-fera-text-tertiary">
+            <div className="fera-surface-hover rounded-[var(--fera-radius-md)] p-3.5">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-fera-text-tertiary">
                 R²
               </span>
               <div className="mt-1">
@@ -102,13 +104,13 @@ export function ModelPage() {
         </div>
       </div>
 
-      <div className="fera-surface rounded-lg p-5">
+      <div className="fera-surface rounded-[var(--fera-radius-lg)] p-5">
         <h3 className="mb-4 text-sm font-semibold text-fera-text-primary">
           Evaluation
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div>
-            <span className="text-xs font-medium uppercase tracking-wider text-fera-text-tertiary">
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-fera-text-tertiary">
               Method
             </span>
             <p className="mt-1 text-sm text-fera-text-primary">
@@ -116,7 +118,7 @@ export function ModelPage() {
             </p>
           </div>
           <div>
-            <span className="text-xs font-medium uppercase tracking-wider text-fera-text-tertiary">
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-fera-text-tertiary">
               Training Vehicles
             </span>
             <p className="mt-1 font-mono text-sm font-medium text-fera-text-primary">
@@ -124,7 +126,7 @@ export function ModelPage() {
             </p>
           </div>
           <div>
-            <span className="text-xs font-medium uppercase tracking-wider text-fera-text-tertiary">
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-fera-text-tertiary">
               Held-out Vehicles
             </span>
             <p className="mt-1 font-mono text-sm font-medium text-fera-text-primary">
@@ -133,7 +135,7 @@ export function ModelPage() {
           </div>
         </div>
         <div className="mt-3 border-t border-fera-border/50 pt-3">
-          <span className="text-xs font-medium uppercase tracking-wider text-fera-text-tertiary">
+          <span className="text-[11px] font-semibold uppercase tracking-wider text-fera-text-tertiary">
             Vehicles with fuel-rate data
           </span>
           <p className="mt-1 font-mono text-sm font-medium text-fera-text-primary">
@@ -142,9 +144,11 @@ export function ModelPage() {
         </div>
       </div>
 
-      <div className="fera-surface rounded-lg p-5">
+      <div className="fera-surface rounded-[var(--fera-radius-lg)] p-5">
         <div className="mb-4 flex items-center gap-2">
-          <Lock className="h-4 w-4 text-fera-accent" />
+          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-fera-secondary-muted">
+            <Lock className="h-3.5 w-3.5 text-fera-secondary" />
+          </span>
           <h3 className="text-sm font-semibold text-fera-text-primary">
             Feature Contract — 12 Locked Features
           </h3>
@@ -152,7 +156,7 @@ export function ModelPage() {
 
         <div className="mb-4">
           <div className="mb-2 flex items-center gap-2">
-            <h4 className="text-xs font-medium uppercase tracking-wider text-fera-text-tertiary">
+            <h4 className="text-[11px] font-semibold uppercase tracking-wider text-fera-text-tertiary">
               API / User Inputs
             </h4>
             <StatusBadge variant="accent">7 fields</StatusBadge>
@@ -169,7 +173,7 @@ export function ModelPage() {
 
         <div>
           <div className="mb-2 flex items-center gap-2">
-            <h4 className="text-xs font-medium uppercase tracking-wider text-fera-text-tertiary">
+            <h4 className="text-[11px] font-semibold uppercase tracking-wider text-fera-text-tertiary">
               Engineered Features
             </h4>
             <StatusBadge variant="neutral">5 fields</StatusBadge>

@@ -9,8 +9,10 @@ interface EmptyStateProps {
 
 export function EmptyState({ title, message, action }: EmptyStateProps) {
   return (
-    <div className="fera-surface flex flex-col items-center gap-3 rounded-lg p-8 text-center">
-      <Inbox className="h-8 w-8 text-fera-text-muted" />
+    <div className="fera-surface flex flex-col items-center gap-3 rounded-[var(--fera-radius-lg)] p-8 text-center">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-fera-surface-hover">
+        <Inbox className="h-5 w-5 text-fera-text-muted" />
+      </div>
       <div>
         <h3 className="text-sm font-semibold text-fera-text-primary">
           {title}

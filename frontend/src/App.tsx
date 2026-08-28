@@ -1,15 +1,15 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AppShell } from "./layouts/AppShell";
+import { LandingPage } from "./pages/LandingPage";
 import { OverviewPage } from "./pages/OverviewPage";
 import { PredictionPage } from "./pages/PredictionPage";
 import { ModelPage } from "./pages/ModelPage";
 import { DatasetPage } from "./pages/DatasetPage";
 
-function App() {
+function WorkspaceRoutes() {
   return (
     <AppShell>
       <Routes>
-        <Route path="/" element={<Navigate to="/overview" replace />} />
         <Route path="/overview" element={<OverviewPage />} />
         <Route path="/prediction" element={<PredictionPage />} />
         <Route path="/model" element={<ModelPage />} />
@@ -18,6 +18,16 @@ function App() {
       </Routes>
     </AppShell>
   );
+}
+
+function App() {
+  const location = useLocation();
+
+  if (location.pathname === "/") {
+    return <LandingPage />;
+  }
+
+  return <WorkspaceRoutes />;
 }
 
 export default App;

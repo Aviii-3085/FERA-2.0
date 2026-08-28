@@ -7,7 +7,7 @@ interface MetricDisplayProps {
 export function MetricDisplay({ label, value, unit }: MetricDisplayProps) {
   return (
     <div className="flex flex-col gap-0.5">
-      <span className="text-xs font-medium uppercase tracking-wider text-fera-text-tertiary">
+      <span className="text-[11px] font-semibold uppercase tracking-wider text-fera-text-tertiary">
         {label}
       </span>
       <div className="flex items-baseline gap-1">

@@ -6,7 +6,7 @@ import { PipelineVisualization } from "../components/PipelineVisualization";
 
 export function DatasetPage() {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 sm:gap-7">
       <PageHeader
         title="Dataset"
         description="Training data composition and ML pipeline architecture."
@@ -21,9 +21,11 @@ export function DatasetPage() {
       </div>
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div className="fera-surface rounded-lg p-5">
+        <div className="fera-surface rounded-[var(--fera-radius-lg)] p-5">
           <div className="mb-4 flex items-center gap-2">
-            <Database className="h-4 w-4 text-fera-accent" />
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-fera-secondary-muted">
+              <Database className="h-3.5 w-3.5 text-fera-secondary" />
+            </span>
             <h3 className="text-sm font-semibold text-fera-text-primary">
               Dataset Summary
             </h3>
@@ -38,7 +40,7 @@ export function DatasetPage() {
             <MetadataRow label="Training vehicles" value="10" />
             <MetadataRow label="Held-out vehicles" value="3" />
           </div>
-          <div className="mt-4 border-t border-fera-border/50 pt-3">
+          <div className="mt-4 border-t border-fera-border/50 pt-3.5">
             <p className="text-xs text-fera-text-muted">
               The dataset is derived from real VED vehicle telemetry. The
               vehicle-grouped evaluation ensures held-out vehicles are

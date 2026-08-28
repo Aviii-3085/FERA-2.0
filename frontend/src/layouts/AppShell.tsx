@@ -15,20 +15,22 @@ export function AppShell({ children }: AppShellProps) {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-fera-bg">
+    <div className="min-h-screen">
       <Sidebar
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
         systemStatus={status}
       />
-      <div className="lg:pl-64">
+      <div className="lg:pl-72">
         <Header
           onMenuClick={() => setSidebarOpen(true)}
           systemStatus={status}
           theme={theme}
           onToggleTheme={toggleTheme}
         />
-        <main className="mx-auto max-w-7xl px-4 py-6 lg:px-8">{children}</main>
+        <main className="mx-auto max-w-7xl px-4 py-6 sm:py-8 lg:px-8">
+          {children}
+        </main>
       </div>
     </div>
   );

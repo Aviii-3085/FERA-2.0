@@ -12,17 +12,17 @@ const statusConfig: Record<
   online: {
     color: "bg-fera-success",
     label: "Online",
-    ring: "shadow-[0_0_0_3px_var(--fera-success-muted)]",
+    ring: "shadow-[0_0_0_4px_var(--fera-success-muted)]",
   },
   unavailable: {
     color: "bg-fera-error",
     label: "Unavailable",
-    ring: "shadow-[0_0_0_3px_var(--fera-error-muted)]",
+    ring: "shadow-[0_0_0_4px_var(--fera-error-muted)]",
   },
   checking: {
     color: "bg-fera-warning",
     label: "Checking",
-    ring: "shadow-[0_0_0_3px_var(--fera-warning-muted)]",
+    ring: "shadow-[0_0_0_4px_var(--fera-warning-muted)]",
   },
 };
 
@@ -33,7 +33,7 @@ export function StatusIndicator({ status, size = "sm" }: StatusIndicatorProps) {
   return (
     <span className="inline-flex items-center gap-2">
       <span
-        className={`${dotSize} rounded-full ${config.color} ${config.ring} ${status === "checking" ? "animate-pulse" : ""}`}
+        className={`${dotSize} rounded-full fera-transition ${config.color} ${config.ring} ${status === "checking" ? "animate-pulse" : ""}`}
         aria-hidden="true"
       />
       <span

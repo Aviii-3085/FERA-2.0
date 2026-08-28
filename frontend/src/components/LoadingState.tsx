@@ -9,7 +9,7 @@ export function LoadingState({
 }: LoadingStateProps) {
   return (
     <div className="flex items-center justify-center gap-3 py-12">
-      <Loader2 className="h-5 w-5 animate-spin text-fera-accent" />
+      <Loader2 className="h-5 w-5 fera-spin-slow text-fera-accent" />
       <span className="text-sm text-fera-text-secondary">{message}</span>
     </div>
   );

@@ -6,8 +6,8 @@ interface DatasetStatProps {
 
 export function DatasetStat({ label, value, unit }: DatasetStatProps) {
   return (
-    <div className="fera-surface rounded-lg p-4">
-      <span className="text-xs font-medium uppercase tracking-wider text-fera-text-tertiary">
+    <div className="fera-surface fera-transition rounded-[var(--fera-radius-lg)] p-4 hover:border-fera-border-strong">
+      <span className="text-[11px] font-semibold uppercase tracking-wider text-fera-text-tertiary">
         {label}
       </span>
       <div className="mt-1.5 flex items-baseline gap-1">
