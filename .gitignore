@@ -90,3 +90,4 @@ data/external/*
 # FERA 2.0 trained model artifacts
 !data/models/
 !data/models/*.pkl
+.vercel
